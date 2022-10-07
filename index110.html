@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>干徒的桌面直播</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    video {
+      width: 100%;
+      border: 5px solid #fb7299;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="flv.min.js"></script>
+
+  <video controls muted autoplay id="videoElement"></video>
+
+  <script>
+
+    if (flvjs.isSupported()) {
+      var videoElement = document.getElementById('videoElement');
+      var flvPlayer = flvjs.createPlayer({
+        type: 'flv',
+        url: 'http://8.142.135.194:7001/live/rfBd56ti2SMtYvSgD5xAV0YU99zampta7Z7S575KLkIZ9PYk.flv'
+      });
+      flvPlayer.attachMediaElement(videoElement);
+      flvPlayer.load();
+      flvPlayer.play();
+    }
+  </script>
+</body>
+
+</html>
